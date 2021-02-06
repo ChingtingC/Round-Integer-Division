@@ -13,7 +13,7 @@ Quotient & Remainder 商 與 餘
 * `-10 /  3 = -4 ... 2`
 * `-10 / -3 =  4 ... 2`
 
-float
+float 浮點數
 
 * ` 10 /  3 =  3.3333`
 * ` 10 / -3 = -3.3333`
@@ -31,6 +31,8 @@ float
 
 Hence, we can infer the remainder (modulus) by the result above.
 
+(我猜) C++ 的整數除法會是**無條件捨去**，所以可以由此而知，C++ 的模除 (modulus) 會如下。
+
 * ` 10 %  3 =  1  //  10 =  3 *  3 + 1`
 * ` 10 % -3 =  1  //  10 = -3 * -3 + 1`
 * `-10 %  3 = -1  // -10 =  3 * -3 - 1`
@@ -43,11 +45,15 @@ Hence, we can infer the remainder (modulus) by the result above.
 * `-10 /  3 = -4`
 * `-10 / -3 =  3`
 
-Note: if use python3, 10/3 may get 3.3333. Hence, we should use 10//3 and get 3.0 where // means floor div
+Note: if use python3, 10/3 may get float 3.333. Hence, we should use 10**//**3 and get 3.0 where // means **floor div**
+
+若使用 python3 ，會得到浮點數 (float) 的結果，所以要用 **//** 來得到下取整除法
 
 (I think) Python integer division will **round down** (or say **floor**, or **round towards negative infinity**)
 
 Hence, we can infer the remainder (modulus) by the result above.
+
+(我猜) Python 的整數除法會是**下取整**，所以可以由此而知，Python 的模除 (modulus) 會如下。
 
 * ` 10 %  3 =  1  //  10 =  3 *  3 + 1`
 * ` 10 % -3 = -2  //  10 = -3 * -4 - 2`
