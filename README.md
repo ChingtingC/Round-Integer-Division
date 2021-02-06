@@ -8,36 +8,51 @@ C++ 和 Python 在整數除法好像會出現一些不一樣的結果？來討�
 
 Quotient & Remainder 商 與 餘
 
-*  10 /  3 =  3 ... 1
-*  10 / -3 = -3 ... 1
-* -10 /  3 = -4 ... 2
-* -10 / -3 =  4 ... 2
+* ` 10 /  3 =  3 ... 1`
+* ` 10 / -3 = -3 ... 1`
+* `-10 /  3 = -4 ... 2`
+* `-10 / -3 =  4 ... 2`
 
 float
 
-*  10 /  3 =  3.3333
-*  10 / -3 = -3.3333
-* -10 /  3 = -3.3333
-* -10 / -3 =  3.3333
+* ` 10 /  3 =  3.3333`
+* ` 10 / -3 = -3.3333`
+* `-10 /  3 = -3.3333`
+* `-10 / -3 =  3.3333`
 
 ## In C++
 
-*  10 /  3 =  3
-*  10 / -3 = -3
-* -10 /  3 = -3
-* -10 / -3 =  3
+* ` 10 /  3 =  3`
+* ` 10 / -3 = -3`
+* `-10 /  3 = -3`
+* `-10 / -3 =  3`
 
 (I think) C++ integer division will **round towards zero** (or say **truncate**, or **round away from infinity**)
 
 Hence, we can infer the remainder (modulus) by the result above.
 
-*  10 %  3 =  1  //  10 =  3 *  3 + 1
-*  10 % -3 =  1  //  10 = -3 * -3 + 1
-* -10 %  3 = -1  // -10 =  3 * -3 - 1
-* -10 % -3 = -1  // -10 = -3 * -3 - 1
+* ` 10 %  3 =  1  //  10 =  3 *  3 + 1`
+* ` 10 % -3 =  1  //  10 = -3 * -3 + 1`
+* `-10 %  3 = -1  // -10 =  3 * -3 - 1`
+* `-10 % -3 = -1  // -10 = -3 * -3 - 1`
 
 ## In Python
 
+* ` 10 /  3 =  3`
+* ` 10 / -3 = -4`
+* `-10 /  3 = -4`
+* `-10 / -3 =  3`
+
+Note: if use python3, 10/3 may get 3.3333. Hence, we should use 10//3 and get 3.0 where // means floor div
+
+(I think) Python integer division will **round down** (or say **floor**, or **round towards negative infinity**)
+
+Hence, we can infer the remainder (modulus) by the result above.
+
+* ` 10 %  3 =  1  //  10 =  3 *  3 + 1`
+* ` 10 % -3 = -2  //  10 = -3 * -4 - 2`
+* `-10 %  3 =  2  // -10 =  3 * -4 + 2`
+* `-10 % -3 = -1  // -10 = -3 * -3 - 1`
 
 ## How to Round Up by C++
 
