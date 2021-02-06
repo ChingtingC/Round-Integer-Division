@@ -29,6 +29,13 @@ float
 
 (I think) C++ integer division will **round towards zero** (or say **truncate**, or **round away from infinity**)
 
+Hence, we can infer the remainder (modulus) by the result above.
+
+*  10 %  3 =  1  //  10 =  3 *  3 + 1
+*  10 % -3 =  1  //  10 = -3 * -3 + 1
+* -10 %  3 = -1  // -10 =  3 * -3 - 1
+* -10 % -3 = -1  // -10 = -3 * -3 - 1
+
 ## In Python
 
 
