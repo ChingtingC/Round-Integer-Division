@@ -1,4 +1,4 @@
-# Round-Integer-Division 整數除法 之 無條件進位/無條件捨去(/四捨五入？)
+# Round-Integer-Division 整數除法 數值簡化
 
 There are different situations of interger division for C++ and Python. How to implement round up/down of interger division?
 
@@ -13,14 +13,37 @@ Quotient & Remainder 商 與 餘
 * -10 /  3 = -4 ... 2
 * -10 / -3 =  4 ... 2
 
+float
+
+*  10 /  3 =  3.3333
+*  10 / -3 = -3.3333
+* -10 /  3 = -3.3333
+* -10 / -3 =  3.3333
+
 ## In C++
 
+*  10 /  3 =  3
+*  10 / -3 = -3
+* -10 /  3 = -3
+* -10 / -3 =  3
+
+(I think) C++ integer division will **round towards zero** (or say **truncate**, or **round away from infinity**)
 
 ## In Python
 
 
-## How to Always Round Up by C++
+## How to Round Up by C++
 
+If the result is positive, the integer division will round down. 
 
-## How to Always Round Down by C++
+Hence, we can use `#define ROUND_UP_DIV(a,b) ((a + b - 1) / b)`
 
+However, **overflow** may happen and makes the answer wrong.
+
+## How to Round Down by C++
+
+If the result is negative, the integer division will round up.
+
+Hence, we can use `#define ROUND_DOWN_DIV(a,b) ((a - b + 1) / b)`
+
+However, **overflow** may happen and makes the answer wrong.
