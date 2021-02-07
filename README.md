@@ -64,14 +64,26 @@ Hence, we can infer the remainder (modulus) by the result above.
 
 If the result is positive, the integer division will round down. 
 
-Hence, we can use `#define ROUND_UP_DIV(a,b) ((a + b - 1) / b)`
+If a/b is positive, we can use `#define ROUND_UP_DIV(a,b) ((a + b - 1) / b)`.
 
 However, **overflow** may happen and makes the answer wrong.
+
+如果 a/b 是正數時，原本的整數除法會得到**下取整**，所以要使用 `#define ROUND_UP_DIV(a,b) ((a + b - 1) / b)` 來得到**上取整**
+
+不過要注意有可能會**溢位** (overflow)，而導致答案錯誤
 
 ## How to Round Down by C++
 
 If the result is negative, the integer division will round up.
 
-Hence, we can use `#define ROUND_DOWN_DIV(a,b) ((a - b + 1) / b)`
+1. `#define ROUND_DOWN_DIV(a,b) ((a - b + 1) / b)` if a/b is negative.
+
+2. `#define ROUND_DOWN_DIV(a,b) ((a - (((a % b) + b) % b)) / b)` for all cases of a/b without "if" branches.
 
 However, **overflow** may happen and makes the answer wrong.
+
+如果 a/b 是負數時，原本的整數除法會得到**上取整**，所以要使用 `#define ROUND_DOWN_DIV(a,b) ((a - b + 1) / b)` 來得到**下取整**
+
+也可以使用 `#define ROUND_DOWN_DIV(a,b) ((a - (((a % b) + b) % b)) / b)` 以避免使用 if 來判斷正負
+
+同樣要注意有可能會**溢位** (overflow)，而導致答案錯誤
