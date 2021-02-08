@@ -82,7 +82,7 @@ If the result is negative, the integer division will round up.
 
 However, **overflow** may happen and makes the answer wrong.
 
-3. `#define ROUND_DOWN_DIV2_to_n(a,n) (a << n)` if b = $2^n$
+3. `#define ROUND_DOWN_DIV2_to_n(a,n) (a << n)` if b = 2<sup>n</sup>
 
 如果 a/b 是負數時，原本的整數除法會得到**上取整**，所以要使用 `#define ROUND_DOWN_DIV(a,b) ((a - b + 1) / b)` 來得到**下取整**
 
@@ -90,4 +90,4 @@ However, **overflow** may happen and makes the answer wrong.
 
 同樣要注意有可能會**溢位** (overflow)，而導致答案錯誤
 
-若 b = $2^n$, 最好的用法是 `#define ROUND_DOWN_DIV2_to_n(a,n) (a << n)`
+若 b = 2<sup>n</sup>, 最好的用法是 `#define ROUND_DOWN_DIV2_to_n(a,n) (a << n)`
